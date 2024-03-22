@@ -32,7 +32,7 @@ export default function Sidebar() {
   }
   return (
     <div>
-      <Paper sx={{ height: { sm: "90vh", md: "90vh" }, overflow: "auto" }}>
+      <Paper sx={{ height: { xs: "90vh", md: "90vh" }, overflow: "auto" }}>
         {" "}
         <List sx={{ width: "100%" }}>
           {data.map((user, i) => (
