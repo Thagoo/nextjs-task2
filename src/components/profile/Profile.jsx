@@ -1,40 +1,75 @@
-import { Avatar, Box, Divider, Grid, Typography } from "@mui/material";
+import {
+  Avatar,
+  Box,
+  Container,
+  Divider,
+  Grid,
+  Typography,
+} from "@mui/material";
 import React from "react";
 import InfoIcon from "@mui/icons-material/Info";
 
 export default function Profile({ userData }) {
   return (
     <div>
-      <Box display="flex" flexDirection={"column"} py={4} pl={14}>
-        <Box display="flex" alignItems="center">
-          <Avatar
-            alt="Remy Sharp"
-            src={userData.avatar}
-            sx={{ width: 140, height: 140 }}
-          />
-          <Box>
-            <Typography variant="h4" ml={4}>
+      <Container sx={{ pt: 8 }}>
+        <Grid container>
+          <Grid
+            item
+            xs={6}
+            md={5}
+            display={"flex"}
+            justifyContent={"end"}
+            sx={{ px: { xs: 1, md: 4 } }}
+          >
+            {" "}
+            <Avatar
+              alt={userData.profile.firstName}
+              src={userData.avatar}
+              sx={{ width: 140, height: 140 }}
+            />
+          </Grid>
+          <Grid
+            item
+            xs={6}
+            md={7}
+            display={"flex"}
+            flexDirection={"column"}
+            justifyContent={"center"}
+          >
+            {" "}
+            <Typography sx={{ typography: { xs: "h6", md: "h3" } }}>
               {userData.profile.firstName} {userData.profile.lastName}
             </Typography>{" "}
             <Typography
-              variant="p"
-              ml={4}
-              mt={8}
-              sx={{ textTransform: "uppercase" }}
+              sx={{
+                textTransform: "uppercase",
+                typography: { xs: "caption", md: "body1-" },
+              }}
             >
               {userData.jobTitle}
             </Typography>
-          </Box>
-        </Box>
+          </Grid>
+        </Grid>
+
         <Divider sx={{ my: 2 }} />
-        <Grid container px={4}>
-          <Grid item xs={2}>
+        <Grid container>
+          <Grid
+            item
+            xs={2}
+            md={4}
+            display={"flex"}
+            justifyContent={"end"}
+            pr={4}
+          >
             {" "}
             <InfoIcon />
           </Grid>
 
-          <Grid item xs={10} display={"flex"} flexDirection={"column"}>
-            <Typography variant="p">@{userData.profile.username}</Typography>
+          <Grid item xs={10} md={7} display={"flex"} flexDirection={"column"}>
+            <Typography variant="p" component={"p"}>
+              @{userData.profile.username}
+            </Typography>
             <Typography variant="p" sx={{ color: "text.secondary" }}>
               username
             </Typography>
@@ -55,7 +90,7 @@ export default function Profile({ userData }) {
             </Typography>
           </Grid>
         </Grid>
-      </Box>
+      </Container>
     </div>
   );
 }

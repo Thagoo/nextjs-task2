@@ -46,7 +46,7 @@ export default function Sidebar() {
               key={i}
             >
               <ListItemAvatar>
-                <Avatar alt="Remy Sharp" src={user.avatar} />
+                <Avatar alt={user.profile.firstName} src={user.avatar} />
               </ListItemAvatar>
               <ListItemText
                 primary={user?.profile.firstName}
